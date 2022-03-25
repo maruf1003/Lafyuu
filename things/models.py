@@ -49,7 +49,7 @@ class Product(models.Model):
         return self.name
 
 
-# Store'ni tovarlarni rasimlari       (admin uchun-?????????)
+# Store'ni tovarlarni rasimlari    
 class Image(models.Model):
     photo = models.ImageField(default=False)
 
