@@ -24,7 +24,7 @@ admin.site.register(OrderItem)
 admin.site.register(Address)
 admin.site.register(Country_Region)
 admin.site.register(City)
+admin.site.register(Transaction)
 
-#########################################################################
 
 

@@ -49,7 +49,7 @@ class Product(models.Model):
         return self.name
 
 
-# Store'ni tovarlarni rasimlari    
+# Store'ni tovarlarni rasimlari
 class Image(models.Model):
     photo = models.ImageField(default=False)
 
@@ -115,7 +115,7 @@ class Notification(models.Model):  # Уведомления
 
 
 class Order(models.Model):
-    title = models.CharField(max_length=200)
+    nmame = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField()
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True)
@@ -147,3 +147,4 @@ class Transaction(models.Model):
 
     def __str__(self):
         return self.click_trans_id
+
