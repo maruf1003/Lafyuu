@@ -38,7 +38,7 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=200)
     image = models.ManyToManyField("Image")
-    size = models.ManyToManyField("Size")
+    size = models.ManyToManyField("Size", null=True, blank=True)
     color = models.ManyToManyField("Color")
     price = models.FloatField(default=False)
     style = models.CharField(max_length=100)

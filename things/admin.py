@@ -2,15 +2,24 @@ from django.contrib import admin
 from things.models import *
 
 
-# Register your models here.
-class ProductAdmin(admin.ModelAdmin):
+class ProductStoreInline(admin.TabularInline):  # Inline faqatgina ForeignKey turdagi modellarga yaratiladi
+    model = Product
+
+
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name']
-    search_fields = ['name', 'size']
+    inlines = [ProductStoreInline]  # Bu yerda Product Inline'ni Adminni Category qismiga ulayapmiz
+
+
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['name', 'price', 'style']
+    search_fields = ['name', 'style']
+    list_filter = ['category']
 
 
 admin.site.register(CustomUser)  # User
-admin.site.register(Product)
-admin.site.register(Category)
+admin.site.register(Product, ProductAdmin)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Color)
 admin.site.register(Size)
 admin.site.register(Image)
@@ -25,6 +34,3 @@ admin.site.register(Address)
 admin.site.register(Country_Region)
 admin.site.register(City)
 admin.site.register(Transaction)
-
-
-
