@@ -36,18 +36,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Application definition
-
+A = ['adminsortable2', ]
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'things',
-    'rest_framework',
+                     'django.contrib.admin',
+                     'django.contrib.auth',
+                     'django.contrib.contenttypes',
+                     'django.contrib.sessions',
+                     'django.contrib.messages',
+                     'django.contrib.staticfiles',
+                     'things',
+                     'rest_framework',
 
-]
+                 ] + A
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,12 +1,13 @@
 from django.contrib import admin
 from things.models import *
+from adminsortable2.admin import SortableAdminMixin
 
 
 class ProductStoreInline(admin.TabularInline):  # Inline faqatgina ForeignKey turdagi modellarga yaratiladi
     model = Product
 
 
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ['name']
     inlines = [ProductStoreInline]  # Bu yerda Product Inline'ni Adminni Category qismiga ulayapmiz
 

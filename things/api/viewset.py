@@ -11,7 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 class CategoryViewSet(mixins.ListModelMixin,
                       mixins.RetrieveModelMixin,
                       viewsets.GenericViewSet):  # магазин учун товарлар категорияси CRUD амаллари кошилмади чунки бу user учун керак эмас
-    queryset = Category.objects.all()
+    queryset = Category.objects.all().order_by("my_order")  # my_order'ni API qismiga uladig. admin sahifasidan Product Category'sini qay tartibda o'zgartirsak xuddi shu tartibda USER'ga ko'rinadi
     serializer_class = CategorySerializer
     filter_backends = (DjangoFilterBackend,)
 

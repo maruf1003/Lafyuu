@@ -29,6 +29,10 @@ class Address(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(null=True)
+    my_order = models.PositiveIntegerField(default=0, blank=False, null=False)  # Sortable2
+
+    class Meta(object):    # Sortable2
+        ordering = ['my_order']
 
     def __str__(self):
         return self.name
