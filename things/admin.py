@@ -13,7 +13,7 @@ class CategoryAdmin(SortableAdminMixin, admin.ModelAdmin):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price', 'style']
+    list_display = ['id', 'name', 'price', 'style']
     search_fields = ['name', 'style']
     list_filter = ['category']
 
