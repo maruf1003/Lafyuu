@@ -31,7 +31,7 @@ class Category(models.Model):
     image = models.ImageField(null=True)
     my_order = models.PositiveIntegerField(default=0, blank=False, null=False)  # Sortable2
 
-    class Meta(object):    # Sortable2
+    class Meta(object):  # Sortable2
         ordering = ['my_order']
 
     def __str__(self):
@@ -81,6 +81,7 @@ class Review_product(models.Model):
     image = models.ManyToManyField("Rw_pr_img")
     star = models.IntegerField(default=False)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)
 
 
 # Otziv uchun rasm
@@ -151,4 +152,3 @@ class Transaction(models.Model):
 
     def __str__(self):
         return self.click_trans_id
-
