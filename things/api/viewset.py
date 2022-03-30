@@ -1,4 +1,5 @@
 from rest_framework import viewsets, mixins, filters
+from Store.pagination import LargeResultsSetPagination
 from things.models import Product, Color, Size, Review_product, Category, Image, Rw_pr_img, UserCard, Notification, \
     NotificationType
 from things.api.serializer import ProductSerializer, ColorSerializer, SizeSerializer, Review_productSerializer, \
@@ -22,6 +23,8 @@ class ProductViewSet(mixins.ListModelMixin,
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filterset_class = ProductFilter
+    pagination_class = LargeResultsSetPagination # paginatsiya
+
     search_fields = ['name', 'style']  # поискда кайси ном бойича кидириши
     filter_backends = [filters.SearchFilter, DjangoFilterBackend]  # поиск API кисмида
 
