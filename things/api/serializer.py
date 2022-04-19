@@ -31,7 +31,7 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def get_category(self, obj):
-        return CategorySerializer(obj.size, many=False, context={"request": self.context["request"]}).data
+        return CategorySerializer(obj.category, many=False, context={"request": self.context["request"]}).data
 
     def get_image(self, obj):
         return ImageSerializer(obj.image, many=False, context={"request": self.context["request"]}).data

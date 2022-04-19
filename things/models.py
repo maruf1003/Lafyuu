@@ -44,7 +44,7 @@ class Product(models.Model):
     image = models.ManyToManyField("Image")
     size = models.ManyToManyField("Size", null=True, blank=True)
     color = models.ManyToManyField("Color")
-    price = models.FloatField(default=False)
+    price = models.FloatField(default='', null=False)
     style = models.CharField(max_length=100)
     desc = models.CharField(max_length=256)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
@@ -120,7 +120,7 @@ class Notification(models.Model):  # Уведомления
 
 
 class Order(models.Model):
-    nmame = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField()
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True)

@@ -60,7 +60,7 @@ class Review_productViewSet(mixins.ListModelMixin,  # отзыв
     serializer_class = Review_productSerializer
 
 
-class Rw_pr_imgViewSet(mixins.ListModelMixin,  # отзыв остидаги продуктларлар сурати
+class Rw_pr_imgViewSet(mixins.ListModelMixin,  # отзыв остидаги продуктлар сурати
                        mixins.RetrieveModelMixin,
                        viewsets.GenericViewSet):
     queryset = Rw_pr_img.objects.all()
